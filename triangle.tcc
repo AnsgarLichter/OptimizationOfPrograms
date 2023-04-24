@@ -136,5 +136,5 @@ public:
 
     return true;
   }
-#endif;
+#endif
 };
