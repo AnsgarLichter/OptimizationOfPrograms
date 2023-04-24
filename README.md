@@ -19,7 +19,7 @@ calculation of the u-v parameters must be transformed appropriately.
 ### Compile and Run
 
 ```bash
-g++ -Wall -pedantic -march=native -mfpmath=sse -mavx -O3 raytracer.cc statistics.cc
+g++ -Wall -pedantic -march=native -mfpmath=sse -mavx -O3 -D OPTIMIZED_INTERSECTS raytracer.cc statistics.cc
 ./a.out
 ```
 
