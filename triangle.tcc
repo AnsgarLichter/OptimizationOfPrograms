@@ -3,8 +3,6 @@
 // The normal vectors have to point away from the surface of the Triangle.
 // The orientation is clockwise order
 
-#define OPTIMIZED_INTERSECTS 1
-
 template <class T>
 class Triangle
 {
