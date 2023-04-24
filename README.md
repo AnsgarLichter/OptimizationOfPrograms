@@ -16,9 +16,36 @@ method three times, it is to be calculated only two times. For this the
 the square of the length with square_of_length() and the calculation of the u-v
 calculation of the u-v parameters must be transformed appropriately.
 
+### Compile and Run
+
+```bash
+g++ -Wall -pedantic -march=native -mfpmath=sse -mavx -O3 raytracer.cc statistics.cc
+./a.out
+```
+
 ## Task 2
 
 The calculation of the square root is relatively time consuming depending on the accuracy and precision. Therefore, it is worth optimizing it. Minor inaccuracies can be accepted here.
+
+### Compile and Run
+
+```bash
+g++ -Wall -pedantic -march=native -mfpmath=sse -mavx2 -O3 sqrt_opt.cc
+./a.out
+```
+
+### Compile to Assembler with Debug Info
+
+```bash
+g++  -S -g
+```
+
+Alternatively by source code:
+
+```bash
+g++-c -g example.cc
+objdump -S example.o > example.s
+```
 
 ## Task 3
 
@@ -49,3 +76,17 @@ is recursively searched for an intersection point.
 of triangles at the node.
 
 The optimized variant of the intersection test shall be used.
+
+### Compile and Run
+
+Run without k-d-trees:
+```bash
+g++ -Wall -pedantic -std=c++11 -march=native -mfpmath=sse -msse -O3 -D OPTIMIZED_INTERSECTS raytracer.cc statistics.cc kdtree.cc
+./a.out
+```
+
+Run with k-d-trees:
+```bash
+g++ -Wall -pedantic -std=c++11 -march=native -mfpmath=sse -msse -O3 -D OPTIMIZED_INTERSECTS -D USE_KDTREE raytracer.cc statistics.cc kdtree.cc
+./a.out
+```
