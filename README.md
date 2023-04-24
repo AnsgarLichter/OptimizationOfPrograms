@@ -80,12 +80,14 @@ The optimized variant of the intersection test shall be used.
 ### Compile and Run
 
 Run without k-d-trees:
+
 ```bash
 g++ -Wall -pedantic -std=c++11 -march=native -mfpmath=sse -msse -O3 -D OPTIMIZED_INTERSECTS raytracer.cc statistics.cc kdtree.cc
 ./a.out
 ```
 
 Run with k-d-trees:
+
 ```bash
 g++ -Wall -pedantic -std=c++11 -march=native -mfpmath=sse -msse -O3 -D OPTIMIZED_INTERSECTS -D USE_KDTREE raytracer.cc statistics.cc kdtree.cc
 ./a.out
