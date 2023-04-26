@@ -25,7 +25,7 @@ g++ -Wall -pedantic -march=native -mfpmath=sse -mavx -O3 -D OPTIMIZED_INTERSECTS
 
 ## Task 2
 
-The calculation of the square root is relatively time consuming depending on the accuracy and precision. Therefore, it is worth optimizing it. Minor inaccuracies can be accepted here.
+The calculation of the square root is relatively time consuming depending on the accuracy and precision. Therefore, it is worth optimizing it. Minor inaccuracies can be accepted here. **Please use GCC 7** because the optimization doesn't work with the latest GCC version.
 
 ### Compile and Run
 

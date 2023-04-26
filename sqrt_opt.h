@@ -12,7 +12,6 @@ float sqrt1(float *a)
   int *ai = reinterpret_cast<int *>(a);
   int *initial = reinterpret_cast<int *>(&root);
   *initial = (1 << 29) + (*ai >> 1) - (1 << 22) - 0x4C000;
-  root = *reinterpret_cast<float *>(initial);
 
   for (size_t i = 0; i < LOOPS; i++)
   {
@@ -33,8 +32,6 @@ void sqrt2(float *__restrict__ a, float *__restrict__ root)
   initial[2] = (1 << 29) + (ai[2] >> 1) - (1 << 22) - 0x4C000;
   initial[3] = (1 << 29) + (ai[3] >> 1) - (1 << 22) - 0x4C000;
 
-  root = reinterpret_cast<float *>(initial);
-
   for (size_t i = 0; i < LOOPS; i++)
   {
     root[0] = 0.5 * (root[0] + a[0] / root[0]);
@@ -50,7 +47,6 @@ void v4sf_sqrt(v4sf *__restrict__ a, v4sf *__restrict__ root)
   v4si *ai = reinterpret_cast<v4si *>(a);
   v4si *initial = reinterpret_cast<v4si *>(root);
   *initial = (1 << 29) + (*ai >> 1) - (1 << 22) - 0x4C000;
-  root = reinterpret_cast<v4sf *>(initial);
 
   for (size_t i = 0; i < LOOPS; i++)
   {
